@@ -59,8 +59,8 @@ for(i in 1:nrow(onedataset)){                ## Uses descriptive activity names 
 	
 }
 
-sub<-rbind(subject_train,subject_test)
-onedataset<-cbind(onedataset,sub)
+subject<-rbind(subject_train,subject_test)
+onedataset<-cbind(onedataset,subject)
 
 levels(featuresnames)[563]<-"subject"   ## Add a level of featuresnames
 featuresnames[563]<-"subject"           ## Assign the 563th colname of "subject"
