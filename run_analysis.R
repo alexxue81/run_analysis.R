@@ -48,7 +48,7 @@ colnames(testpluslabel)<-featuresnames
 onedataset<-rbind(trainpluslabel,testpluslabel) ## Bind to build a data.frame that includes all the data in one data set 
 
 
-for(i in 1:nrow(onedataset)){                ## Uses descriptive activity names to name the activities in the data set
+for(i in 1:nrow(onedataset)){				## Uses descriptive activity names to name the activities in the data set
 
 	if(onedataset[i,562]==1){onedataset[i,562]<-"WALKING"}
 	if(onedataset[i,562]==2){onedataset[i,562]<-"WALKING_UPSTAIRS"}
@@ -59,14 +59,14 @@ for(i in 1:nrow(onedataset)){                ## Uses descriptive activity names 
 	
 }
 
-subject<-rbind(subject_train,subject_test)
-onedataset<-cbind(onedataset,subject)
+subject<-rbind(subject_train,subject_test)  ## Bind the subject number
+onedataset<-cbind(onedataset,subject)       ## Add a column of subject number to complete the data set.
 
 levels(featuresnames)[563]<-"subject"   ## Add a level of featuresnames
 featuresnames[563]<-"subject"           ## Assign the 563th colname of "subject"
 colnames(onedataset)<-featuresnames     ## Assign the featuresnames to the colnames of the data.frame
 
 
-
-
+aa<-aggregate(onedataset,by=list(onedataset[,562],onedataset[,563]),FUN=mean) ## Calculate the mean of each variable for each activity and each subject. 
+write.table(aa,file="step5data.txt",row.name=FALSE)  ## Create a txt file contains the mean of each variable for each activity and each subject.
 
