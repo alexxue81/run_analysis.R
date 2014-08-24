@@ -2,7 +2,7 @@
 ## ==============
 
 ## This is the script for Getting and Cleaning Data Course Project
-## I have finished all thesteps as below:
+## I have finished all the steps as below:
 
 ##        1.Merges the training and the test sets to create one data set.
 ##        2.Extracts only the measurements on the mean and standard deviation for each measurement. 
